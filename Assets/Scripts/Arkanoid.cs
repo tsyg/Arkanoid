@@ -12,9 +12,9 @@ public static class Arkanoid
         config = Resources.Load<ArkanoidConfig>("Config");
     }
 
-    public static void Loadlevel(int levelNumber) {
-        SceneManager.LoadScene("Level");
-    }
+    // public static void Loadlevel(int levelNumber) {
+    //     SceneManager.LoadScene("Level");
+    // }
 
     // public static void StartNewGame() {
     //     SceneManager.LoadScene("Level:1:easy:red");

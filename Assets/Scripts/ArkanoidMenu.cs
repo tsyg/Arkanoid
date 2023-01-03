@@ -29,7 +29,7 @@ public class ArkanoidMenu : MonoBehaviour
     }
 
     public void Loadlevel(int levelNumber) {
-        SceneManager.LoadScene("Level");
+        Arkanoid.Action("Level:1");
     }
 
 
