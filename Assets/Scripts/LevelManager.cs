@@ -34,9 +34,13 @@ public class LevelManager : MonoBehaviour
                     newBrick.transform.SetParent(this.transform);
                     Vector3 pos = Vector3.zero;
                     pos.x = dx * (icell - nx/2);
-                    pos.y = dy * (iline - ny/2);
+                    pos.y = dy * (ny/2 - iline);  // 0 is at the top
                     newBrick.transform.position = pos;
-                    // Color from palette                    
+                    // Color from palette    
+
+                    Renderer mr = newBrick.GetComponent<Renderer>();
+                    // TODO: Assert there are enough colors in palette
+                    mr.material.color = Arkanoid.config.bricksPalette[cell];
                 }
 
 
