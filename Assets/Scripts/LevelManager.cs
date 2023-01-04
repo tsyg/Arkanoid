@@ -40,6 +40,9 @@ public class LevelManager : MonoBehaviour
 
                     Renderer mr = newBrick.GetComponent<Renderer>();
                     // TODO: Assert there are enough colors in palette
+                    Debug.Assert(
+                        cell < Arkanoid.config.bricksPalette.Length,
+                        "there must be enough colors in palette, at least " + cell.ToString());
                     mr.material.color = Arkanoid.config.bricksPalette[cell];
                 }
 
