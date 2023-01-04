@@ -17,7 +17,7 @@ public class ArkanoidConfig : ScriptableObject
     public List<ArkanoidConfigLevel> levels = new List<ArkanoidConfigLevel>();
 
 
-    public GameObject brickPrefab; // NONO  = new BrickPrefab();
+    public GameObject brickPrefab;
 
     static public void createBricks(List<List<int>> levelData){
         int iline = 0;
@@ -34,7 +34,6 @@ public class ArkanoidConfig : ScriptableObject
 
     }
     /*
-
         GameObject newBrick = Instantiate(Arkanoid.config.brickPrefab);
         newBrick.transform.position = Vector3.zero;
         BrickPrefab brickPrefabScript = newBrick.GetComponent<BrickPrefab>();
