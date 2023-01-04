@@ -19,26 +19,6 @@ public class ArkanoidConfig : ScriptableObject
 
     public GameObject brickPrefab;
 
-    static public void createBricks(List<List<int>> levelData){
-        int iline = 0;
-        foreach (List<int> line in levelData) {
-            int icell = 0;
-            foreach (int cell in line) {
-                Debug.Log("Line, cell: ["+iline.ToString()+","+ icell.ToString() +"]  " 
-                //+ line.ToString() + " " 
-                + cell.ToString());
-                icell++;
-            }
-            iline++;
-        }
-
-    }
-    /*
-        GameObject newBrick = Instantiate(Arkanoid.config.brickPrefab);
-        newBrick.transform.position = Vector3.zero;
-        BrickPrefab brickPrefabScript = newBrick.GetComponent<BrickPrefab>();
-
-    */
 }
 
 [System.Serializable]
@@ -65,7 +45,7 @@ public class ArkanoidConfigLevel {
             foreach (string cell in cells)
             {
                 int brick_index = int.Parse(cell);
-                Debug.Log("Brick: " + brick_index);
+                //Debug.Log("Brick: " + brick_index);
                 levelRowData.Add(brick_index);
             }
 

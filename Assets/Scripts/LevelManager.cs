@@ -13,33 +13,32 @@ public class LevelManager : MonoBehaviour
 
         // Generte bricks for the level (the one we've set and copied)
         createBricks(Arkanoid.config.levels[0].GetLevelData());
-        // Debug.Log(" ***** LevelManager. before Instantiate");
-
-        GameObject newBrick = Instantiate(Arkanoid.config.brickPrefab);
-        newBrick.transform.SetParent(this.transform);
-        Vector3 pos = newBrick.transform.position; 
-        //Debug.Log(" ***** LevelManager. A: " + pos.ToString());
-        // newBrick.transform.position = Vector3.zero;
-        // Debug.Log(" ***** LevelManager.Start --002");
-        // BrickPrefab brickPrefabScript = newBrick.GetComponent<BrickPrefab>();
-        // Debug.Log(" ***** LevelManager.Start --end ...........");
+        Debug.Log(" ***** LevelManager - Level created");
     }
 
 
     private void createBricks(List<List<int>> levelData){
         int iline = 0;
-        //float dx = Arkanoid.config.brickPrefab.
+        float dx = 2.2f; // Arkanoid.config.brickPrefab.
+        float dy = 0.6f; 
+        int ny = levelData.Count;
         foreach (List<int> line in levelData) {
             int icell = 0;
+            int nx = line.Count;
             foreach (int cell in line) {
-                Debug.Log("Line, cell: ["+iline.ToString()+","+ icell.ToString() +"]  " 
-                //+ line.ToString() + " " 
-                + cell.ToString());
+                // Debug.Log("Line, cell: ["+iline.ToString()+","+ icell.ToString() +"]  " 
+                // + cell.ToString());
+                
+                if (cell!=0) {  // a brick must be created
+                    GameObject newBrick = Instantiate(Arkanoid.config.brickPrefab);
+                    newBrick.transform.SetParent(this.transform);
+                    Vector3 pos = Vector3.zero;
+                    pos.x = dx * (icell - nx/2);
+                    pos.y = dy * (iline - ny/2);
+                    newBrick.transform.position = pos;
+                    // Color from palette                    
+                }
 
-                GameObject newBrick = Instantiate(Arkanoid.config.brickPrefab);
-                newBrick.transform.SetParent(this.transform);
-                // Vector3 pos = newBrick.transform.position; 
-                // pos.x += 
 
                 icell++;
             }
