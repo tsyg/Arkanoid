@@ -45,7 +45,6 @@ public class ArkanoidConfigLevel {
             foreach (string cell in cells)
             {
                 int brick_index = int.Parse(cell);
-                //Debug.Log("Brick: " + brick_index);
                 levelRowData.Add(brick_index);
             }
 

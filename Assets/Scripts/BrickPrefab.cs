@@ -15,4 +15,8 @@ public class BrickPrefab : MonoBehaviour
     {
         
     }
+
+    private void OnCollisionEnter(Collision other) {
+        Destroy(gameObject);
+    }
 }

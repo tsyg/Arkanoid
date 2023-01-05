@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public static class Arkanoid 
 {
 
+    public static string[] arguments = new string[0];
     public static ArkanoidConfig config;
 
     static Arkanoid() {
@@ -25,7 +26,7 @@ public static class Arkanoid
 
 
     public static void Action(string cmd) {
-        string [] arguments = cmd.Split(':');
+        arguments = cmd.Split(':');
         SceneManager.LoadScene(arguments[0]);
     }
 }

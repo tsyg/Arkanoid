@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+
+    public int currentLevel = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -11,16 +14,21 @@ public class LevelManager : MonoBehaviour
         // string data = System.IO.File.ReadAllText(
         //     @"/home/universe.dart.spb/tsyg/Learning/Ark/Arkanoid/Assets/Levels/level9.txt");
 
+        if (Arkanoid.arguments.Length > 0) {
+            currentLevel = int.Parse(Arkanoid.arguments[1]);
+        }
+        
+
         // Generte bricks for the level (the one we've set and copied)
-        createBricks(Arkanoid.config.levels[0].GetLevelData());
+        createBricks(Arkanoid.config.levels[currentLevel].GetLevelData());
         Debug.Log(" ***** LevelManager - Level created");
     }
 
 
     private void createBricks(List<List<int>> levelData){
         int iline = 0;
-        float dx = 2.2f; // Arkanoid.config.brickPrefab.
-        float dy = 0.6f; 
+        float dx = 2.2f; //transform.localScale.x + 0.2f; // TODO - find out What's wrong with scale using
+        float dy = 0.6f; //transform.localScale.y + 0.1f;  
         int ny = levelData.Count;
         foreach (List<int> line in levelData) {
             int icell = 0;
